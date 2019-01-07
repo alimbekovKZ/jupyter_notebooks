@@ -1,0 +1,6 @@
+https://habr.com/company/idfinance/blog/421091/
+https://www.researchgate.net/publication/322520135_Monotone_optimal_binning_algorithm_for_credit_risk_modeling
+https://medium.com/@sundarstyles89/weight-of-evidence-and-information-value-using-python-6f05072e83eb
+https://github.com/Sundar0989/WOE-and-IV/blob/master/WOE_IV.ipynb
+https://medium.com/henry-jia/how-to-score-your-credit-1c08dd73e2ed
+https://www.linkedin.com/pulse/credit-risk-scorecard-monitoring-tracking-shailendra/\
