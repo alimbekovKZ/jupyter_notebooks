@@ -1,0 +1,1 @@
+{"image": "bagxi/idrnd-anti-spoofing-challenge@sha256:93c585091c8e3f2f4db855cda671664292889c8498e0197f3045dfd1a069c317", "entrypoint": "python run_nn.py infer --in-csv=$PATH_INPUT/meta.csv --in-dir=$PATH_INPUT --out-csv=$PATH_OUTPUT/solution.csv --model=resnet34 --weights-path=./models/easy_gold.pth --image-size=448 --batch-size=128"}

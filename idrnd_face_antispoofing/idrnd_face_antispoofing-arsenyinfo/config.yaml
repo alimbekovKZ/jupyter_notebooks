@@ -1,0 +1,88 @@
+name: baseline
+n_fold: 0
+
+train:
+  data_dir: &DATA_DIR /home/arseny/datasets/idrnd_train
+  size: &SIZE 256
+  crop: random
+  preload: &PRELOAD false
+  preload_size: &PRELOAD_SIZE 384
+  bounds: [0, .9]
+  scope: geometric
+  corrupt: null
+  test: &IS_TEST false
+  mixup: 0
+
+val:
+  data_dir: *DATA_DIR
+  size: *SIZE
+  scope: weak
+  crop: center
+  preload: *PRELOAD
+  preload_size: *PRELOAD_SIZE
+  bounds: [.9, 1]
+  corrupt: null
+  test: *IS_TEST
+  mixup: 0
+
+test:
+  data_dir: *DATA_DIR
+  size: *SIZE
+  scope: empty
+  crop: center
+  preload: false
+  preload_size: *PRELOAD_SIZE
+  corrupt: null
+  test: true
+  mixup: 0
+
+batch_size: 32
+model: densenet121
+lr: 0.0001
+
+stages:
+  - epochs: 30
+    loss_weights: [1, 1, 1, 2]
+    train:
+      corrupt: &CORRUPT_HARD
+        - name: cutout
+          prob: 0.5
+          num_holes: 3
+          max_h_size: 40
+          max_w_size: 40
+        - name: jpeg
+          quality_lower: 50
+          quality_upper: 85
+        - name: motion_blur
+        - name: median_blur
+        - name: gamma
+        - name: rgb_shift
+        - name: hsv_shift
+        - name: sharpen
+        - name: shadow
+        - name: fog
+        - name: channel_shuffle
+        - name: grid_distortion
+        - name: gray
+      soften: .9
+      mixup: 0.5
+  - epochs: 100
+    loss_weights: [1, 1, 1, 2]
+    train:
+      corrupt: &CORRUPT_SOFT
+        - name: cutout
+          prob: 0.5
+          num_holes: 3
+          max_h_size: 30
+          max_w_size: 30
+        - name: jpeg
+          quality_lower: 70
+          quality_upper: 95
+        - name: motion_blur
+        - name: median_blur
+        - name: gamma
+        - name: rgb_shift
+        - name: hsv_shift
+        - name: sharpen
+      soften: .99
+      mixup: 0
