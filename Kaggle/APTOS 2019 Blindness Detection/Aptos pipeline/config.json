@@ -1,0 +1,59 @@
+{
+    "name": "exp_2019-09-06 16:48:00",
+    "input": {
+        "width": 486,
+        "height": 486,
+        "transforms": [
+            "random_resized_crop"
+        ],
+        "test_transforms": [
+            "random_resized_crop"
+        ]
+    },
+    "dataset": {
+        "fold": 0,
+        "num_class": 5,
+        "batch_size": 1,
+        "num_workers": 4,
+        "method": "regression",
+        "use_original": true,
+        "use_diabetic_retinopathy": true,
+        "valid_with_both": true,
+        "valid_with_large": false,
+        "valid_with_small": false,
+        "upsampling": false,
+        "use_class_ratio": true,
+        "use_dataset_ratio": true,
+        "class_ratio": [
+            1,
+            1,
+            1.1,
+            1,
+            1
+        ],
+        "dataset_ratio": [
+            1,
+            1
+        ]
+    },
+    "model": {
+        "name": "densenet121",
+        "pretrained": true,
+        "weight_path": null
+    },
+    "train_param": {
+        "epoch": 30,
+        "lr": 0.0001,
+        "grad_clip_step": 20,
+        "grad_clip": 100.0,
+        "scheduler": "cosine",
+        "cosine": {
+            "t_max": 20,
+            "eta_min": 0
+        },
+        "steplr": {
+            "step_size": 4,
+            "gamma": 0.1
+        }
+    }
+}
