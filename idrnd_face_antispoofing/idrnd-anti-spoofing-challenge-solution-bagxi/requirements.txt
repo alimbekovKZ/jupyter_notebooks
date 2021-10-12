@@ -7,7 +7,7 @@ imgaug==0.2.6
 nmslib==1.7.3.6
 numpy==1.16.3
 opencv-python==4.0.0.21
-opencv-python-headless==4.0.0.21
+opencv-python-headless==4.1.1.26
 pytorch_toolbelt==0.1.0
 scikit-image
 torchvision>=0.2.1
