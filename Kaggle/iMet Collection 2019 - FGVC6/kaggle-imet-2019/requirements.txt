@@ -1,6 +1,6 @@
 json-lines==0.5.0
 matplotlib==3.0.3
-numpy==1.16.2
+numpy==1.22.0
 opencv-python==4.0.0.21
 pandas==0.23.4
 Pillow==6.2.0
